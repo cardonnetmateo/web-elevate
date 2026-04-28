@@ -1,1 +1,19 @@
 @import "tailwindcss";
+.chalk-line {
+  stroke: rgba(255,255,255,0.9);
+  stroke-width: 2;
+  fill: none;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  filter: blur(0.6px);
+
+  stroke-dasharray: 400;
+  stroke-dashoffset: 400;
+  animation: draw 4s ease infinite;
+}
+
+@keyframes draw {
+  0% { stroke-dashoffset: 450; }
+  80% { stroke-dashoffset: 150; }
+  100% { stroke-dashoffset: 400; }
+}
