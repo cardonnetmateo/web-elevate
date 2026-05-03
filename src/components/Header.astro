@@ -1,7 +1,11 @@
+---
+const currentPath = new URL(Astro.request.url).pathname;
+---
+
 <header class="fixed top-6 left-1/2 -translate-x-1/2 z-50 w-full px-4">
   <div class="max-w-5xl mx-auto">
     
-    <div class="relative flex items-center justify-between px-8 py-4 rounded-full 
+    <div class="relative flex items-center px-6 md:px-8 py-3 md:py-4 rounded-full 
                 bg-black/60 backdrop-blur-xl border border-white/10 shadow-lg">
 
       <!-- Glow naranja -->
@@ -10,26 +14,75 @@
       </div>
 
       <!-- Logo -->
-      <div class="relative z-10 font-bold text-white">
+      <a href="/" class="relative z-10 font-bold text-white">
         ELEVATE
-      </div>
+      </a>
 
-      <!-- Nav -->
-      <nav class="relative z-10 hidden md:flex gap-8 text-sm text-white/70">
+      <!-- Nav Desktop -->
+      <nav class="absolute z-10 hidden md:flex gap-8 text-sm text-white/70 left-1/2 -translate-x-1/2">
         
-        <a href="#" class="text-orange-400 relative">
+        <a href="/" class={`relative group transition ${currentPath === '/' ? 'text-indigo-400' : 'hover:text-white'}`}>
           Inicio
-          <span class="absolute -bottom-1 left-0 w-full h-0.5 bg-orange-400 rounded-full"></span>
+          <span class={`absolute -bottom-1 left-0 w-full h-0.5 bg-indigo-400 rounded-full transition-opacity ${currentPath === '/' ? 'opacity-100' : 'opacity-0 group-hover:opacity-100'}`}></span>
         </a>
 
-        <a href="#" class="hover:text-white transition">Nosotros</a>
-        <a href="#" class="hover:text-white transition">Pricing</a>
-        <a href="#" class="hover:text-white transition">Servicios</a>
-        <a href="#" class="hover:text-white transition">Contacto</a>
+        <a href="#servicios" class="relative group transition hover:text-white">
+          Servicios
+          <span class="absolute -bottom-1 left-0 w-full h-0.5 bg-indigo-400 rounded-full transition-opacity opacity-0 group-hover:opacity-100"></span>
+        </a>
+
+        <a href="#nosotros" class="relative group transition hover:text-white">
+          Nosotros
+          <span class="absolute -bottom-1 left-0 w-full h-0.5 bg-indigo-400 rounded-full transition-opacity opacity-0 group-hover:opacity-100"></span>
+        </a>
+
+        <a href="#pricing" class="relative group transition hover:text-white">
+          Pricing
+          <span class="absolute -bottom-1 left-0 w-full h-0.5 bg-indigo-400 rounded-full transition-opacity opacity-0 group-hover:opacity-100"></span>
+        </a>
+
+        <a href="#contacto" class="relative group transition hover:text-white">
+          Contacto
+          <span class="absolute -bottom-1 left-0 w-full h-0.5 bg-indigo-400 rounded-full transition-opacity opacity-0 group-hover:opacity-100"></span>
+        </a>
 
       </nav>
+
+      <!-- Mobile Menu Button -->
+      <button id="mobile-menu-btn" class="relative z-10 md:hidden ml-auto p-2 text-white/70 hover:text-white transition-colors">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+        </svg>
+      </button>
 
     </div>
 
   </div>
+
+  <!-- Mobile Menu -->
+  <div id="mobile-menu" class="hidden md:hidden mt-2 max-w-5xl mx-auto">
+    <nav class="flex flex-col items-center gap-1 p-4 rounded-2xl bg-black/80 backdrop-blur-xl border border-white/10 shadow-lg">
+      <a href="/" class="w-full text-center py-3 text-white/70 hover:text-white transition-colors rounded-xl hover:bg-white/5">Inicio</a>
+      <a href="#servicios" class="w-full text-center py-3 text-white/70 hover:text-white transition-colors rounded-xl hover:bg-white/5">Servicios</a>
+      <a href="#nosotros" class="w-full text-center py-3 text-white/70 hover:text-white transition-colors rounded-xl hover:bg-white/5">Nosotros</a>
+      <a href="#pricing" class="w-full text-center py-3 text-white/70 hover:text-white transition-colors rounded-xl hover:bg-white/5">Pricing</a>
+      <a href="#contacto" class="w-full text-center py-3 px-6 rounded-xl bg-indigo-500 text-white font-semibold hover:bg-indigo-600 transition-colors">Contacto</a>
+    </nav>
+  </div>
+
 </header>
+
+<script>
+  const menuBtn = document.getElementById('mobile-menu-btn');
+  const mobileMenu = document.getElementById('mobile-menu');
+  
+  menuBtn?.addEventListener('click', () => {
+    mobileMenu?.classList.toggle('hidden');
+  });
+
+  document.querySelectorAll('#mobile-menu a').forEach(link => {
+    link.addEventListener('click', () => {
+      mobileMenu?.classList.add('hidden');
+    });
+  });
+</script>

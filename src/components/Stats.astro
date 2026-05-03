@@ -1,0 +1,52 @@
+<section class="relative py-16 px-6 bg-black">
+  <div class="max-w-5xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-8">
+    
+    <div class="fade-in text-center">
+      <div class="text-4xl md:text-5xl font-bold bg-linear-to-r from-indigo-400 to-cyan-400 bg-clip-text text-transparent mb-2">
+        +150
+      </div>
+      <p class="text-white/60 text-sm md:text-base">Sistemas automatizados</p>
+    </div>
+
+    <div class="fade-in text-center">
+      <div class="text-4xl md:text-5xl font-bold bg-linear-to-r from-indigo-400 to-cyan-400 bg-clip-text text-transparent mb-2">
+        +500
+      </div>
+      <p class="text-white/60 text-sm md:text-base">Horas ahorradas/mes</p>
+    </div>
+
+    <div class="fade-in text-center">
+      <div class="text-4xl md:text-5xl font-bold bg-linear-to-r from-indigo-400 to-cyan-400 bg-clip-text text-transparent mb-2">
+        3x
+      </div>
+      <p class="text-white/60 text-sm md:text-base">Más conversiones</p>
+    </div>
+
+    <div class="fade-in text-center">
+      <div class="text-4xl md:text-5xl font-bold bg-linear-to-r from-indigo-400 to-cyan-400 bg-clip-text text-transparent mb-2">
+        98%
+      </div>
+      <p class="text-white/60 text-sm md:text-base">Satisfacción</p>
+    </div>
+
+  </div>
+</section>
+
+<style>
+  .fade-in {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 0.6s ease forwards;
+  }
+  .fade-in:nth-child(1) { animation-delay: 0.1s; }
+  .fade-in:nth-child(2) { animation-delay: 0.2s; }
+  .fade-in:nth-child(3) { animation-delay: 0.3s; }
+  .fade-in:nth-child(4) { animation-delay: 0.4s; }
+
+  @keyframes fadeInUp {
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+</style>
