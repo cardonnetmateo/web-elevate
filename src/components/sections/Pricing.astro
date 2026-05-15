@@ -1,7 +1,8 @@
 ---
+import type { PricingCardProps } from "../../types/pricing";
 import PricingCard from "./PricingCard.astro";
 
-const plans = [
+const plans: PricingCardProps[] = [
   {
     title: "Stock",
     subtitle: "Controla tu stock con solo un mensaje",
@@ -20,19 +21,17 @@ const plans = [
     featured: false,
   },
   {
-    title: "Crecimiento",
-    subtitle: "El sistema completo de ventas",
-    price: "$597",
+    title: "Bot de ventas",
+    subtitle: "Ya no pierdas clientes por no responder al instante",
+    price: "$400",
     priceLabel: "primer pago",
-    recurring: "+ $597 por mes",
+    recurring: "+ $200 por mes",
     features: [
       "Web profesional optimizada para convertir clientes",
       "Agente de IA 24/7",
-      "3 campañas de Meta Ads",
-      "Publicación automática de contenido",
-      "Bot de ventas con agendamiento",
-      "Gestión básica de stock",
-      "Dashboard de métricas en vivo",
+      "Bot de ventas que responde a tus clientes al instante",
+      "Seguimiento profesional automático",
+      "Agendamiento automático de citas",
     ],
     buttonText: "Quiero este plan",
     buttonHref: "#contacto",
@@ -40,20 +39,19 @@ const plans = [
   },
   {
     title: "Escala",
-    subtitle: "Máxima automatización",
-    price: "$997",
+    subtitle: "Estrategia personalizada de marketing y automatización",
+    price: "$750",
     priceLabel: "primer pago",
-    recurring: "+ $997 por mes",
+    recurring: "+ $250 por mes",
     features: [
       "Todo lo del plan Crecimiento",
-      "Múltiples agentes de IA",
-      "Campañas ilimitadas",
-      "Gestión inteligente de stock con IA",
+      "Campaña de meta ads personalizada",
+      "Hoks en cada publicacion para captar clientes",
+      "Creacion de una comunidad de clientes",
       "CRM personalizado a medida",
       "Chatbots internos para tu equipo",
-      "Manager dedicado + llamadas semanales",
     ],
-    buttonText: "Contactar ventas",
+    buttonText: "Quiero ESCALAR",
     buttonHref: "#contacto",
     featured: false,
   },
